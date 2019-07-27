@@ -8,23 +8,18 @@ import { Normalize } from 'styled-normalize';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-import Logo from './assets/img/MEDE.svg';
-
-
-
-function App(){
+function App() {
   return (
-      <>
-        <BrowserRouter>
-          <Header/>
-          <Logo/>
-          <Routes />
-          <Footer />
-          <Normalize/>
-          <GlobalStyle/>
-        </BrowserRouter>
-      </>
-    );
-};
+    <>
+      <BrowserRouter>
+        <Header />
+        <Routes />
+        <Footer />
+        <Normalize />
+        <GlobalStyle />
+      </BrowserRouter>
+    </>
+  );
+}
 
 export default App;
