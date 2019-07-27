@@ -13,7 +13,9 @@ export default createGlobalStyle`
   }
 
   body{
-    background-color: #222222;
+    background-color: #ffffff;
     font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    color: #222222;
   }
 `;
