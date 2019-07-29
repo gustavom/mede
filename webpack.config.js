@@ -1,36 +1,32 @@
 const path = require('path');
 
-module.exports ={
-  entry: path.resolve(__dirname,'src','index.js'),
-  output:{
+module.exports = {
+  entry: path.resolve(__dirname, 'src', 'index.js'),
+  output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
-  devServer:{
-    contentBase: path.resolve(__dirname, 'public')
+  devServer: {
+    historyApiFallback: true,
+    contentBase: path.resolve(__dirname, 'public'),
   },
-  module:{
-    rules:[
+  module: {
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use:{
-          loader: 'babel-loader'
-        }
+        use: {
+          loader: 'babel-loader',
+        },
       },
       {
         test: /.*\.(gif|jpe?g|png)$/i,
-        use:[
-          {loader: 'file-loader'},
-        ]
+        use: [{ loader: 'file-loader' }],
       },
       {
         test: /\.svg$/,
-        use: [
-          'desvg-loader/react',
-          'svg-loader'
-        ],
+        use: ['desvg-loader/react', 'svg-loader'],
       },
-    ]
-  }
+    ],
+  },
 };
