@@ -82,6 +82,13 @@ export default class LoginModal extends Component {
               </>
             )}
           </form>
+          {this.props.logged ? (
+            <button className="danger" onClick={() => this.props.logoutUser()}>
+              Sair
+            </button>
+          ) : (
+            ''
+          )}
         </div>
       </Container>
     );

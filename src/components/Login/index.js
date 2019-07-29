@@ -35,6 +35,14 @@ export default class Login extends Component {
     });
   };
 
+  logOut = e => {
+    this.setState({
+      isLogged: false,
+      showModal: false,
+      userName: localStorage.removeItem('user'),
+    });
+  };
+
   render() {
     return (
       <>
@@ -61,6 +69,7 @@ export default class Login extends Component {
             logged={this.state.isLogged}
             closeModal={this.showModal}
             submitForm={this.closeModalForm}
+            logoutUser={this.logOut}
           />
         )}
         {!this.state.showModal ? '' : <ModalGlobalStyle />}
