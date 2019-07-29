@@ -7,6 +7,7 @@ import { Normalize } from 'styled-normalize';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import LoginModal from './components/LoginModal';
 
 class App extends Component {
   state = {
@@ -28,6 +29,7 @@ class App extends Component {
           {!this.state.isHome ? <Header /> : ''}
           <Routes isHome={this.changeIsHome} confirmIndex={this.confirmHome} />
           <Footer />
+          <LoginModal />
           <Normalize />
           <GlobalStyle />
         </BrowserRouter>
