@@ -8,7 +8,7 @@ export const Container = styled.header`
   min-height: 90px;
   padding: 15px;
   border-bottom: solid 1px #eee;
-  & > svg {
+  .logo {
     width: 100px;
     height: 25px;
     path {
