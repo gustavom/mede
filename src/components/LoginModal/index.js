@@ -5,6 +5,15 @@ import { FaTimes } from 'react-icons/fa';
 import { Container } from './styles';
 
 export default class LoginModal extends Component {
+  state = {
+    user: '',
+  };
+  handleSubmit = async e => {
+    this.setState({
+      newRepo: e.target.value,
+    });
+  };
+
   render() {
     return (
       <Container>
