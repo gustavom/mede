@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
-  padding: 30px 15px;
+  min-height: 90px;
+  padding: 15px;
   border-bottom: solid 1px #eee;
   svg {
     width: 100px;
