@@ -7,11 +7,40 @@ import { Container } from './styles';
 export default class LoginModal extends Component {
   state = {
     user: '',
+    userField: '',
   };
-  handleSubmit = async e => {
+
+  componentDidUpdate(_, prevState) {
+    const { user } = this.state;
+    console.log(user);
+    if (prevState.user !== this.state.user) {
+      localStorage.setItem('user', JSON.stringify(user));
+      this.props.submitForm();
+    }
+  }
+
+  handleInputChange = e => {
+    console.log(e.target.value);
     this.setState({
-      newRepo: e.target.value,
+      userField: e.target.value,
     });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const { user, userField } = this.state;
+
+    console.log(`User atual ${userField}`);
+
+    const userName = userField;
+    console.log(`Const userName ${userName}`);
+
+    this.setState({
+      user: userName,
+    });
+
+    console.log(`Olha o user ${user}`);
+    console.log(user);
   };
 
   render() {
@@ -20,8 +49,14 @@ export default class LoginModal extends Component {
         <div className="modal-inner">
           <FaTimes className="close" onClick={() => this.props.closeModal()} />
           <h3>Faça seu login</h3>
-          <form id="modalForm">
-            <input type="text" id="login" placeholder="Informe seu login" />
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type="text"
+              id="login"
+              name="login"
+              placeholder="Informe seu login"
+              onChange={this.handleInputChange}
+            />
             <button type="submit">Entrar</button>
           </form>
         </div>

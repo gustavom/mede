@@ -51,7 +51,7 @@ export const Container = styled.div`
         color: #fff;
       }
     }
-    .close {
+    & > .close {
       position: absolute;
       top: 15px;
       right: 15px;

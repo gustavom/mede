@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import { Container } from './styles';
 import Login from '../../components/Login';
 import Logo from '../../assets/img/MEDE.svg';
 
-function Header({ modal }) {
-  return (
-    <Container>
-      <Logo />
-      <Login onLogin={modal} />
-    </Container>
-  );
+class Header extends Component {
+  render() {
+    return (
+      <Container>
+        <Logo />
+        <Login />
+      </Container>
+    );
+  }
 }
 
 export default Header;
