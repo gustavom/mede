@@ -68,6 +68,12 @@ export const Button = styled(Link)`
   font-weight: 400;
   letter-spacing: -2px;
   text-decoration: none;
+  &:hover {
+    background-color: #10b26c;
+  }
+  &:active {
+    background-color: #0e995d;
+  }
   span {
     display: flex;
     align-items: center;
