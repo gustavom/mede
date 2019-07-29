@@ -25,8 +25,9 @@ export const Menu = styled.ul`
       margin: 0;
     }
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
+      text-transform: lowercase;
     }
   }
 `;
