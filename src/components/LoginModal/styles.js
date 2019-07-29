@@ -40,16 +40,42 @@ export const Container = styled.div`
         background-color: #f5f4f6;
         margin-bottom: 15px;
       }
-      button {
-        width: 100%;
-        padding: 14px 10px;
-        border-radius: 3px;
+    }
+    button {
+      width: 100%;
+      padding: 14px 10px;
+      border-radius: 3px;
+      background-color: #365df0;
+      margin-bottom: 15px;
+      border: 0;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      &:hover {
+        background-color: #2f55cc;
+      }
+      &:active {
+        background-color: #244aa8;
+      }
+      &.success {
         background-color: #0dcb7d;
-        border: 0;
-        font-family: 'Source Sans Pro', sans-serif;
-        font-weight: 600;
-        font-size: 16px;
-        color: #fff;
+        &:hover {
+          background-color: #10b26c;
+        }
+        &:active {
+          background-color: #0e995d;
+        }
+      }
+      &.danger {
+        background-color: #f95e5a;
+        &:hover {
+          background-color: #cc4c4c;
+        }
+        &:active {
+          background-color: #a53f3f;
+        }
       }
     }
     & > .close {

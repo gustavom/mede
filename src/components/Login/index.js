@@ -13,7 +13,10 @@ export default class Login extends Component {
     userName: '',
   };
   componentDidMount() {
-    if (localStorage.getItem('user') !== null) {
+    if (
+      localStorage.getItem('user') !== null &&
+      localStorage.getItem('user') !== ''
+    ) {
       this.setState({
         isLogged: true,
         userName: localStorage.getItem('user'),

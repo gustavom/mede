@@ -55,24 +55,32 @@ export default class LoginModal extends Component {
           )}
           <form onSubmit={this.handleSubmit}>
             {this.props.logged ? (
-              <input
-                type="text"
-                id="login"
-                name="login"
-                placeholder={localStorage.getItem('user')}
-                onChange={this.handleInputChange}
-              />
+              <>
+                <input
+                  type="text"
+                  id="login"
+                  name="login"
+                  placeholder={localStorage.getItem('user')}
+                  onChange={this.handleInputChange}
+                />
+                <button type="submit" className="success">
+                  Editar
+                </button>
+              </>
             ) : (
-              <input
-                type="text"
-                id="login"
-                name="login"
-                placeholder="Informe seu login"
-                onChange={this.handleInputChange}
-              />
+              <>
+                <input
+                  type="text"
+                  id="login"
+                  name="login"
+                  placeholder="Informe seu login"
+                  onChange={this.handleInputChange}
+                />
+                <button type="submit" className="success">
+                  Entrar
+                </button>
+              </>
             )}
-
-            <button type="submit">Entrar</button>
           </form>
         </div>
       </Container>
