@@ -48,15 +48,30 @@ export default class LoginModal extends Component {
       <Container>
         <div className="modal-inner">
           <FaTimes className="close" onClick={() => this.props.closeModal()} />
-          <h3>Faça seu login</h3>
+          {this.props.logged ? (
+            <h3>Editar seu perfil</h3>
+          ) : (
+            <h3>Faça seu login</h3>
+          )}
           <form onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              id="login"
-              name="login"
-              placeholder="Informe seu login"
-              onChange={this.handleInputChange}
-            />
+            {this.props.logged ? (
+              <input
+                type="text"
+                id="login"
+                name="login"
+                placeholder={localStorage.getItem('user')}
+                onChange={this.handleInputChange}
+              />
+            ) : (
+              <input
+                type="text"
+                id="login"
+                name="login"
+                placeholder="Informe seu login"
+                onChange={this.handleInputChange}
+              />
+            )}
+
             <button type="submit">Entrar</button>
           </form>
         </div>

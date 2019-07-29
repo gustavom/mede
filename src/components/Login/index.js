@@ -22,7 +22,6 @@ export default class Login extends Component {
   }
   showModal = e => {
     this.setState({ showModal: !this.state.showModal });
-    alert(`Esta logado ${this.state.isLogged}`);
   };
 
   closeModalForm = e => {
@@ -31,18 +30,23 @@ export default class Login extends Component {
       showModal: false,
       userName: localStorage.getItem('user'),
     });
-    alert(`Esta logado ${this.state.isLogged}`);
   };
 
   render() {
     return (
       <>
         {this.state.isLogged ? (
-          <Container className="is-logged">
+          <Container
+            className={`is-logged ${this.props.homeClass || ''}`}
+            onClick={() => this.showModal()}
+          >
             <span>{this.state.userName}</span>
           </Container>
         ) : (
-          <Container onClick={() => this.showModal()}>
+          <Container
+            onClick={() => this.showModal()}
+            className={`${this.props.homeClass || ''}`}
+          >
             <span>login</span>
           </Container>
         )}
@@ -51,6 +55,7 @@ export default class Login extends Component {
           ''
         ) : (
           <LoginModal
+            logged={this.state.isLogged}
             closeModal={this.showModal}
             submitForm={this.closeModalForm}
           />

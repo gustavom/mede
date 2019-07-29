@@ -5,6 +5,8 @@ import { Container, Hero, Spot, Button } from './styles';
 
 import Logo from '../../assets/img/MEDE.svg';
 
+import Login from '../../components/Login';
+
 export default class Home extends Component {
   componentDidMount() {
     return this.props.navIsHome();
@@ -12,6 +14,7 @@ export default class Home extends Component {
   render() {
     return (
       <Container>
+        <Login homeClass="login-home" />
         <Hero>
           <Logo />
           <Spot>

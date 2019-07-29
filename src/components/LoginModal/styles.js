@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
@@ -10,6 +10,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 90;
   .modal-inner {
     position: relative;
     background-color: #fff;

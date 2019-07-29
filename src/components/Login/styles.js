@@ -8,4 +8,11 @@ export const Container = styled.span`
   &:hover {
     color: #666;
   }
+  &.login-home {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 15px;
+    color: #fff;
+  }
 `;
