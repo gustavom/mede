@@ -71,5 +71,11 @@ export const Button = styled(Link)`
   span {
     display: flex;
     align-items: center;
+    line-height: 1.5;
+    svg {
+      width: 15px;
+      height: 15px;
+      margin-left: 10px;
+    }
   }
 `;
