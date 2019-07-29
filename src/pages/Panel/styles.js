@@ -9,6 +9,7 @@ export const Container = styled.main`
   min-height: 580px;
   display: flex;
   align-items: center;
+  justify-content: center;
   background: url(${HomeBg}) center no-repeat;
   background-size: cover;
 
@@ -22,7 +23,7 @@ export const Container = styled.main`
     background: linear-gradient(
       130deg,
       rgba(13, 112, 203, 0.9) 0%,
-      rgba(73, 48, 166, 0.1) 100%
+      rgba(73, 48, 166, 0.9) 100%
     );
   }
 `;
