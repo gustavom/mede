@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 
-// import { Container } from './styles';
+import { Container } from './styles';
 
 export default class Panel extends Component {
   componentDidMount() {
     return this.props.navIsHome(false);
   }
   render() {
-    return <h1>Panel</h1>;
+    return (
+      <Container>
+        <h1>Panel</h1>
+      </Container>
+    );
   }
 }
