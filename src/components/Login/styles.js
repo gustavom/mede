@@ -5,6 +5,7 @@ export const Container = styled.span`
   font-weight: 600;
   cursor: pointer;
   color: #222222;
+  color: #fff;
   &:hover {
     color: #666;
   }
