@@ -4,11 +4,13 @@ import { Container } from './styles';
 import Login from '../../components/Login';
 import Logo from '../../assets/img/MEDE.svg';
 
-export default function Header() {
+function Header({ modal }) {
   return (
     <Container>
       <Logo />
-      <Login />
+      <Login onLogin={modal} />
     </Container>
   );
 }
+
+export default Header;

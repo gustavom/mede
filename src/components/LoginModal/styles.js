@@ -11,6 +11,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   .modal-inner {
+    position: relative;
     background-color: #fff;
     border-radius: 3px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
@@ -49,6 +50,12 @@ export const Container = styled.div`
         font-size: 16px;
         color: #fff;
       }
+    }
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      cursor: pointer;
     }
   }
 `;

@@ -5,7 +5,7 @@ import { Container } from './styles';
 export default class Login extends Component {
   render() {
     return (
-      <Container>
+      <Container onClick={() => this.props.onLogin()}>
         <span>login</span>
       </Container>
     );

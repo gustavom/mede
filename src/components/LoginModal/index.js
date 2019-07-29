@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { FaTimes } from 'react-icons/fa';
+
 import { Container } from './styles';
 
 export default class LoginModal extends Component {
@@ -7,6 +9,7 @@ export default class LoginModal extends Component {
     return (
       <Container>
         <div className="modal-inner">
+          <FaTimes className="close" onClick={() => this.props.closeModal()} />
           <h3>Faça seu login</h3>
           <form id="modalForm">
             <input type="text" id="login" placeholder="Informe seu login" />
