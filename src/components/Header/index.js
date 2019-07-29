@@ -8,7 +8,6 @@ export default function Header() {
   return (
     <Container>
       <Logo />
-      <h1>Header</h1>
     </Container>
   );
 }
