@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 // import { Container } from './styles';
 
-export default function Panel() {
-  return (
-    <h1>Panel</h1>
-  );
+export default class Panel extends Component {
+  componentDidMount() {
+    return this.props.navIsHome(false);
+  }
+  render() {
+    return <h1>Panel</h1>;
+  }
 }
