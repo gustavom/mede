@@ -14,17 +14,11 @@ class App extends Component {
   };
 
   changeIsHome = () => {
-    alert(this.state.isHome);
-    this.setState({ isHome: !this.state.isHome }, () => {
-      alert(this.state.isHome);
-    });
+    this.setState({ isHome: !this.state.isHome });
   };
 
   confirmHome = () => {
-    alert(this.state.isHome);
-    this.setState({ isHome: true }, () => {
-      alert(this.state.isHome);
-    });
+    this.setState({ isHome: true });
   };
 
   render() {
