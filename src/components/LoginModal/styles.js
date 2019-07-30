@@ -10,7 +10,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 90;
+  z-index: 9999;
   .modal-inner {
     position: relative;
     background-color: #fff;
