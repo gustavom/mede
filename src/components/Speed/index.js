@@ -16,7 +16,7 @@ export default class Speed extends Component {
         </div>
         <div className="speed-item">
           <span className="title">Latência</span>
-          <span className="numbers">{this.props.latency}</span> Mbps
+          <span className="numbers">{this.props.latency}</span> Ms
         </div>
       </Container>
     );
