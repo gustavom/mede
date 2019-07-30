@@ -4,7 +4,7 @@ import { Container } from './styles';
 
 import Speed from '../../components/Speed';
 
-import { FaCheck } from 'react-icons/fa';
+import { FaCheck, FaUndo } from 'react-icons/fa';
 
 export default class Panel extends Component {
   state = {
@@ -13,13 +13,25 @@ export default class Panel extends Component {
     latency: 0,
     results: [],
     showSave: false,
-    isSaved: true,
+    isSaving: false,
+    isSaved: false,
+    showRedo: false,
   };
   componentDidMount() {
-    const results = localStorage.getItem('results');
+    const resultsLocal = localStorage.getItem('results');
 
-    if (results) {
-      this.setState({ results: JSON.parse(results) });
+    if (resultsLocal) {
+      this.setState({ results: JSON.parse(resultsLocal) });
+
+      const resultLastPos = JSON.parse(resultsLocal).length - 1;
+
+      this.setState({
+        download: JSON.parse(resultsLocal)[resultLastPos].download,
+        upload: JSON.parse(resultsLocal)[resultLastPos].upload,
+        latency: JSON.parse(resultsLocal)[resultLastPos].latency,
+        showRedo: true,
+      });
+      return this.props.navIsHome(false);
     }
     this.runSpeedMeter();
     return this.props.navIsHome(false);
@@ -32,29 +44,40 @@ export default class Panel extends Component {
     }
   }
 
-  runSpeedMeter = () => {
-    // alert('teste');
-    let counter = 0;
-    const myTimer = () => {
-      let timer = setTimeout(() => {
-        console.log(counter++);
-        if (counter < 20) {
-          this.setState({
-            download: Math.floor(Math.random() * (101 - 90) + 90),
-            upload: Math.floor(Math.random() * (101 - 90) + 90),
-            latency: Math.floor(Math.random() * (101 - 90) + 90),
-          });
-          myTimer();
-        }
-        if (counter === 20) {
-          this.setState({
-            showSave: true,
-          });
-        }
-      }, 500);
-    };
+  myTimer = param => {
+    // let timer =
+    setTimeout(() => {
+      console.log(param++);
+      if (param < 20) {
+        this.setState({
+          download: Math.floor(Math.random() * (101 - 90) + 90),
+          upload: Math.floor(Math.random() * (101 - 90) + 90),
+          latency: Math.floor(Math.random() * (101 - 90) + 90),
+        });
+        this.myTimer(param);
+      }
+      if (param === 20) {
+        this.setState({
+          showSave: true,
+          showRedo: false,
+        });
+      }
+    }, 500);
+  };
 
-    myTimer();
+  runSpeedMeter = () => {
+    let counter = 0;
+    this.myTimer(counter);
+  };
+
+  redoTest = () => {
+    this.setState({
+      download: 0,
+      upload: 0,
+      latency: 0,
+      isSaved: false,
+    });
+    this.runSpeedMeter();
   };
 
   saveSpeedMeter = () => {
@@ -65,8 +88,19 @@ export default class Panel extends Component {
       latency: this.state.latency,
     };
     this.setState({
+      isSaving: true,
+      showSave: false,
+    });
+    this.setState({
       results: [...results, data],
     });
+    setTimeout(() => {
+      this.setState({
+        isSaving: false,
+        showSave: false,
+        showRedo: true,
+      });
+    }, 900);
   };
 
   render() {
@@ -77,16 +111,30 @@ export default class Panel extends Component {
           upload={this.state.upload}
           latency={this.state.latency}
         />
+        {/*show check saved*/}
+        {this.state.isSaving ? (
+          <div className="saving">
+            <FaCheck viewBox="0 0 512 512" size="100" />
+          </div>
+        ) : (
+          ''
+        )}
         {this.state.showSave ? (
           <div className="save-button">
-            <button
-              onClick={() => this.runSpeedMeter()}
-              className="success outline"
-            >
-              Refazer
+            <button onClick={() => this.redoTest()} className="success outline">
+              <FaUndo />
             </button>
             <button onClick={() => this.saveSpeedMeter()} className="success">
               Salvar
+            </button>
+          </div>
+        ) : (
+          ''
+        )}
+        {this.state.showRedo ? (
+          <div className="save-button">
+            <button onClick={() => this.redoTest()} className="success outline">
+              <FaUndo />
             </button>
           </div>
         ) : (
