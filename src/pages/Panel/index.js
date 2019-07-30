@@ -4,6 +4,8 @@ import { Container } from './styles';
 
 import Speed from '../../components/Speed';
 
+import { FaCheck } from 'react-icons/fa';
+
 export default class Panel extends Component {
   state = {
     download: 0,
@@ -11,6 +13,7 @@ export default class Panel extends Component {
     latency: 0,
     results: [],
     showSave: false,
+    isSaved: true,
   };
   componentDidMount() {
     const results = localStorage.getItem('results');
