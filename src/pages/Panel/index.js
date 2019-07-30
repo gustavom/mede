@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Container } from './styles';
 
 import Speed from '../../components/Speed';
+import Historic from '../../components/Historic';
 
 import { FaCheck, FaUndo } from 'react-icons/fa';
 
@@ -140,6 +141,7 @@ export default class Panel extends Component {
         ) : (
           ''
         )}
+        <Historic />
       </Container>
     );
   }
