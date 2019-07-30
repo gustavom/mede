@@ -6,6 +6,7 @@ export const Container = styled.div`
   width: 100%;
   max-width: 700px;
   padding: 50px 0 10px;
+  animation: fade-in-bottom ease 0.4s forwards;
   &:before {
     position: absolute;
     content: '';
@@ -17,6 +18,19 @@ export const Container = styled.div`
     height: 1px;
     background-color: rgba(255, 255, 255, 0.2);
   }
+
+  @keyframes fade-in-bottom {
+    from {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   .main-title {
     position: relative;
     padding: 20px 0;
@@ -69,6 +83,14 @@ export const Container = styled.div`
             font-size: 35px;
             font-weight: 200;
           }
+        }
+        &:last-child {
+          border: 0;
+        }
+      }
+      &:last-child {
+        &:before {
+          display: none;
         }
       }
     }

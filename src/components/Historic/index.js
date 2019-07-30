@@ -8,66 +8,30 @@ export default class Historic extends Component {
       <Container>
         <h2 className="main-title">Seu histórico</h2>
         <ul>
-          <li>
-            <div className="item">
-              <span className="title">Download</span>
-              <span className="result">
-                <span>99</span> Mbps
-              </span>
-            </div>
-            <div className="item">
-              <span className="title">Upload</span>
-              <span className="result">
-                <span>99</span> Mbps
-              </span>
-            </div>
-            <div className="item">
-              <span className="title">Latência</span>
-              <span className="result">
-                <span>99</span> Ms
-              </span>
-            </div>
-          </li>
-          <li>
-            <div className="item">
-              <span className="title">Download</span>
-              <span className="result">
-                <span>99</span> Mbps
-              </span>
-            </div>
-            <div className="item">
-              <span className="title">Upload</span>
-              <span className="result">
-                <span>99</span> Mbps
-              </span>
-            </div>
-            <div className="item">
-              <span className="title">Latência</span>
-              <span className="result">
-                <span>99</span> Ms
-              </span>
-            </div>
-          </li>
-          <li>
-            <div className="item">
-              <span className="title">Download</span>
-              <span className="result">
-                <span>99</span> Mbps
-              </span>
-            </div>
-            <div className="item">
-              <span className="title">Upload</span>
-              <span className="result">
-                <span>99</span> Mbps
-              </span>
-            </div>
-            <div className="item">
-              <span className="title">Latência</span>
-              <span className="result">
-                <span>99</span> Ms
-              </span>
-            </div>
-          </li>
+          {this.props.resultList
+            .map((item, index) => (
+              <li key={index}>
+                <div className="item">
+                  <span className="title">Download</span>
+                  <span className="result">
+                    <span>{item.download}</span> Mbps
+                  </span>
+                </div>
+                <div className="item">
+                  <span className="title">Upload</span>
+                  <span className="result">
+                    <span>{item.upload}</span> Mbps
+                  </span>
+                </div>
+                <div className="item">
+                  <span className="title">Latência</span>
+                  <span className="result">
+                    <span>{item.latency}</span> Ms
+                  </span>
+                </div>
+              </li>
+            ))
+            .reverse()}
         </ul>
       </Container>
     );

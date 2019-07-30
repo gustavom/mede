@@ -17,12 +17,16 @@ export default class Panel extends Component {
     isSaving: false,
     isSaved: false,
     showRedo: false,
+    hasHistoric: false,
   };
   componentDidMount() {
     const resultsLocal = localStorage.getItem('results');
 
     if (resultsLocal) {
-      this.setState({ results: JSON.parse(resultsLocal) });
+      this.setState({
+        results: JSON.parse(resultsLocal),
+        hasHistoric: true,
+      });
 
       const resultLastPos = JSON.parse(resultsLocal).length - 1;
 
@@ -91,9 +95,8 @@ export default class Panel extends Component {
     this.setState({
       isSaving: true,
       showSave: false,
-    });
-    this.setState({
       results: [...results, data],
+      hasHistoric: true,
     });
     setTimeout(() => {
       this.setState({
@@ -141,7 +144,11 @@ export default class Panel extends Component {
         ) : (
           ''
         )}
-        <Historic />
+        {this.state.hasHistoric ? (
+          <Historic resultList={this.state.results} />
+        ) : (
+          ''
+        )}
       </Container>
     );
   }

@@ -83,6 +83,7 @@ export const Container = styled.main`
     z-index: 90;
     width: 100%;
     flex: 0 0 100%;
+    padding: 15px 0;
     animation: fade-in-bottom ease 0.4s forwards;
     button {
       max-width: 100px;
