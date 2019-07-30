@@ -82,8 +82,32 @@ export const Container = styled.main`
     z-index: 90;
     width: 100%;
     flex: 0 0 100%;
+    animation: fade-in-bottom ease 0.4s forwards;
     button {
       max-width: 100px;
+    }
+  }
+
+  @keyframes fade-in-bottom {
+    from {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .saving {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    svg {
+      animation: fade-in-bottom ease 0.4s forwards;
+      fill: #10b26c;
     }
   }
 `;
