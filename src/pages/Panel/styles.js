@@ -5,8 +5,8 @@ import HomeBg from '../../assets/img/home-bg.png';
 export const Container = styled.main`
   position: relative;
   width: 100%;
-  height: 100vh;
-  min-height: 580px;
+  min-height: 100vh;
+  /* min-height: 580px; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -14,6 +14,7 @@ export const Container = styled.main`
   background: url(${HomeBg}) center no-repeat;
   background-size: cover;
   padding-top: 100px;
+  padding-bottom: 70px;
   button {
     width: 100%;
     margin: 0 10px;
